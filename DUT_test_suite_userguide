@@ -1,0 +1,57 @@
+********************************************************************************************************************************************
+*****************************************************   Script 1 - DUT-Gpio-Test.sh   ******************************************************
+********************************************************************************************************************************************
+
+Assumption:
+1. GPIO pins from 1 to 10 are available as sysfs entries under /sys/class/gpio/gpioX. Where "X" is GPIO number from 1 to 10 for each of GPIO from 1 to 10.
+
+Usage:
+Run DUT-Gpio-Test.sh from bash using following command:
+./DUT-Gpio-Test.sh
+
+Decoding the result:
+1. In first set of test, odd numbered pins are tested for their function as input and even numbered pins are tested for their function output. Output messages will be of following order.
+
+GPIO1 is tested as input - <RESULT>
+GPIO2 is tested as output - <RESULT>
+GPIO3 is tested as input - <RESULT>
+GPIO4 is tested as output - <RESULT>
+GPIO5 is tested as input - <RESULT>
+GPIO6 is tested as output - <RESULT>
+GPIO7 is tested as input - <RESULT>
+GPIO8 is tested as output - <RESULT>
+GPIO9 is tested as input - <RESULT>
+GPIO10 is tested as output - <RESULT>
+
+<RESULT> can be either PASS or FAIL.
+
+2. In the next set of test, even numbered pins are tested for their function as input and odd numbered pins are tested for their function output. Output messages will be of following order.
+
+GPIO1 is tested as output - <RESULT>
+GPIO2 is tested as input - <RESULT>
+GPIO3 is tested as output - <RESULT>
+GPIO4 is tested as input - <RESULT>
+GPIO5 is tested as output - <RESULT>
+GPIO6 is tested as input - <RESULT>
+GPIO7 is tested as output - <RESULT>
+GPIO8 is tested as input - <RESULT>
+GPIO9 is tested as output - <RESULT>
+GPIO10 is tested as input - <RESULT>
+
+<RESULT> can be either PASS or FAIL.
+
+********************************************************************************************************************************************
+*****************************************************   Script 2 - DUT-Eeprom-Test-Suite.sh   **********************************************
+********************************************************************************************************************************************
+
+Assumption:
+1. EEPROM device is located in sysfs at /sys/bus/i2c/i2c1/devices/eeprom.
+
+Usage:
+Run DUT-Eeprom-Test-Suite.sh from bash using following command:
+./DUT-Eeprom-Test-Suite.sh
+
+Decoding the result:
+1. If file content written to EEPROM and read from EEPROM are same, the message "Files are identical. Test has passed." is displayed. This means that test has passed.
+
+2. If file content written to EEPROM and read from EEPROM are not same, the message "Files are not identical. Test has failed." is displayed. This means that test has failed.
